@@ -1,0 +1,266 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  padding: calc(var(--header-h) + var(--space-12)) var(--space-6) var(--space-16);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.scenePlaceholder {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 70% 40%, rgba(34, 211, 238, 0.18), transparent 55%),
+    radial-gradient(circle at 30% 70%, rgba(167, 139, 250, 0.10), transparent 55%);
+  filter: blur(40px);
+  opacity: 0.7;
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(10, 14, 20, 0) 60%, rgba(10, 14, 20, 0.95) 100%),
+    linear-gradient(90deg, rgba(10, 14, 20, 0.85) 0%, rgba(10, 14, 20, 0.4) 60%, transparent 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container);
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 880px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  width: fit-content;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.6);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.18); opacity: 0.7; }
+}
+
+.h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 7vw, 5.8rem);
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.cursor {
+  display: inline-block;
+  color: var(--accent-bright);
+  margin-left: 0.05em;
+  animation: blink 1s steps(2) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.focusRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2.6vw, 1.95rem);
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.focusPrefix {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.focusSlot {
+  position: relative;
+  display: inline-block;
+  height: 1.3em;
+  min-width: min(280px, 60vw);
+  overflow: hidden;
+  vertical-align: bottom;
+  border-bottom: 2px solid var(--accent);
+}
+
+.focusWord {
+  position: absolute;
+  inset: 0;
+  color: var(--accent-bright);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.focusActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 56ch;
+  line-height: 1.6;
+}
+
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  list-style: none;
+  margin-top: var(--space-2);
+}
+
+.metric {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(15, 20, 28, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text);
+  backdrop-filter: blur(8px);
+}
+
+.metricMark {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.85rem 1.5rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--accent-glow);
+  background: var(--accent-bright);
+  color: var(--bg);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 1.25rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  color: var(--text);
+  transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
+}
+
+.ctaSecondary:hover {
+  border-color: var(--accent);
+  color: var(--accent-bright);
+  background: rgba(34, 211, 238, 0.06);
+}
+
+.scroll {
+  position: absolute;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  z-index: 2;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  animation: drop 1.6s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes drop {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.4; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .focusRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .focusSlot {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+/* GSAP animation marker classes · empty rules so the CSS-modules hash exists
+ * and class lookups in Landing.tsx don't resolve to literal "undefined". */
+.eyebrowAnim,
+.h1Anim,
+.focusAnim,
+.subAnim,
+.metricAnim,
+.ctaAnim,
+.scrollAnim {
+  will-change: transform, opacity;
+}

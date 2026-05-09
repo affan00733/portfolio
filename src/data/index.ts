@@ -1,0 +1,10 @@
+export * from './types';
+export { profile } from './profile';
+export { education } from './education';
+export { experience } from './experience';
+export { publications } from './publications';
+export { projects } from './projects';
+export { skillCategories, marqueeSkills } from './skills';
+export { awards } from './awards';
+export { whatIDo } from './whatIDo';
+export { resumes } from './resumes';

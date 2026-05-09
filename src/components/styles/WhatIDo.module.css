@@ -1,0 +1,128 @@
+.section {
+  padding: var(--space-24) var(--space-6);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(34, 211, 238, 0.04), transparent 50%),
+    var(--bg);
+}
+
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+.card {
+  position: relative;
+  padding: var(--space-6);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: transform 320ms ease, border-color 320ms ease, background 320ms ease;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--card-accent) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-accent);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardTag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--card-accent);
+  padding: 0.25rem 0.6rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  opacity: 0.85;
+}
+
+.cardArrow {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.card:hover .cardArrow {
+  color: var(--card-accent);
+  transform: translate(2px, -2px);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.cardDesc {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.examples {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--border-strong);
+}
+
+.examples li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.exDot {
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  margin-top: 0.55em;
+  border-radius: 50%;
+  background: var(--card-accent);
+}
