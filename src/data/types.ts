@@ -22,6 +22,10 @@ export interface Profile {
   linkedin: { label: string; url: string };
   github: { label: string; url: string };
   scholar?: { label: string; url: string };
+  /** Public 1-page AI/ML résumé (served from /public/resumes/). */
+  resumePath: string;
+  /** Full academic CV (multi-page) — for academic recruiters and depth review. */
+  cvPath: string;
 }
 
 export interface EducationEntry {

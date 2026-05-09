@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { profile, resumes } from '../data';
+import { FiDownload } from 'react-icons/fi';
+import { profile } from '../data';
 import SectionHeader from './SectionHeader';
 import styles from './styles/Contact.module.css';
 
@@ -10,8 +11,6 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Contact() {
   const rootRef = useRef<HTMLElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const [openResume, setOpenResume] = useState(false);
   const [copied, setCopied] = useState(false);
 
   useGSAP(
@@ -27,15 +26,6 @@ export default function Contact() {
     },
     { scope: rootRef }
   );
-
-  useEffect(() => {
-    if (!openResume) return;
-    const onClick = (e: MouseEvent) => {
-      if (!dropdownRef.current?.contains(e.target as Node)) setOpenResume(false);
-    };
-    document.addEventListener('mousedown', onClick);
-    return () => document.removeEventListener('mousedown', onClick);
-  }, [openResume]);
 
   const copyEmail = async () => {
     try {
@@ -53,7 +43,7 @@ export default function Contact() {
         <SectionHeader
           index="08"
           eyebrow="Get in touch"
-          title="Hiring for an AI / ML, Data, or SDE role?"
+          title="Hiring for an AI / ML role?"
           description="Looking for 2026 summer internships and full-time roles. Reach out by email; I usually reply within a day."
         />
 
@@ -79,39 +69,27 @@ export default function Contact() {
               {copied ? '✓ Copied' : 'Copy email'}
             </button>
 
-            <div className={styles.resumeWrap} ref={dropdownRef}>
-              <button
-                type="button"
-                className={styles.resumeBtn}
-                onClick={() => setOpenResume((v) => !v)}
-                aria-haspopup="menu"
-                aria-expanded={openResume}
-                data-cursor
-                data-cursor-label="résumé"
-              >
-                Download résumé
-                <span className={styles.caret}>▾</span>
-              </button>
-              {openResume && (
-                <div className={styles.menu} role="menu">
-                  <div className={styles.menuHint}>Pick the variant that matches your req:</div>
-                  {resumes.map((r) => (
-                    <a
-                      key={r.id}
-                      href={r.file}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.menuItem}
-                      role="menuitem"
-                      data-cursor
-                    >
-                      <span className={styles.menuLabel}>{r.label}</span>
-                      <span className={styles.menuDesc}>{r.description}</span>
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
+            <a
+              href={profile.resumePath}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.resumeBtn}
+              data-cursor
+              data-cursor-label="résumé"
+            >
+              <FiDownload aria-hidden /> Résumé · 1 page
+            </a>
+
+            <a
+              href={profile.cvPath}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.resumeBtn}
+              data-cursor
+              data-cursor-label="full CV"
+            >
+              <FiDownload aria-hidden /> Full CV
+            </a>
           </div>
         </div>
 

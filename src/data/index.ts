@@ -7,4 +7,3 @@ export { projects } from './projects';
 export { skillCategories, marqueeSkills } from './skills';
 export { awards } from './awards';
 export { whatIDo } from './whatIDo';
-export { resumes } from './resumes';

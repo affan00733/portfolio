@@ -37,13 +37,13 @@ export default function SocialRail() {
         <FiMail />
       </a>
       <a
-        href="/resumes/Mohammed_Afaan_Ansari_CV.pdf"
+        href={profile.resumePath}
         target="_blank"
         rel="noreferrer"
         className={styles.link}
         data-cursor
         data-cursor-label="résumé"
-        aria-label="Résumé (full CV)"
+        aria-label="Résumé"
       >
         <FiFileText />
       </a>

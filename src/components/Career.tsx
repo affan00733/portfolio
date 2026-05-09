@@ -1,32 +1,19 @@
-import { useMemo, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ROLE_META, ROLE_ORDER, experience } from '../data';
-import { matchesRole, useRoleFilter, type RoleFilter } from '../context/RoleContext';
+import { ROLE_META, experience } from '../data';
 import SectionHeader from './SectionHeader';
 import styles from './styles/Career.module.css';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const FILTER_OPTIONS: { value: RoleFilter; label: string }[] = [
-  { value: 'all', label: 'All' },
-  ...ROLE_ORDER.map((r) => ({ value: r, label: ROLE_META[r].short })),
-];
-
 export default function Career() {
   const rootRef = useRef<HTMLElement>(null);
-  const { selectedRole, setSelectedRole } = useRoleFilter();
   const [showEarlier, setShowEarlier] = useState(false);
 
-  const main = useMemo(
-    () => experience.filter((e) => !e.earlier && matchesRole(e.roles, selectedRole)),
-    [selectedRole]
-  );
-  const earlier = useMemo(
-    () => experience.filter((e) => e.earlier && matchesRole(e.roles, selectedRole)),
-    [selectedRole]
-  );
+  const main = experience.filter((e) => !e.earlier);
+  const earlier = experience.filter((e) => e.earlier);
 
   useGSAP(
     () => {
@@ -39,7 +26,7 @@ export default function Career() {
         stagger: 0.08,
       });
     },
-    { scope: rootRef, dependencies: [selectedRole] }
+    { scope: rootRef }
   );
 
   return (
@@ -49,31 +36,9 @@ export default function Career() {
           index="04"
           eyebrow="Career"
           title="Six years across research labs, fintech, and startups."
-          description="Filter by what you're hiring for, and the timeline reshapes to surface only the work in that lane."
         />
 
-        <div className={styles.filters} role="tablist" aria-label="Filter by role">
-          {FILTER_OPTIONS.map((opt) => (
-            <button
-              key={opt.value}
-              type="button"
-              role="tab"
-              aria-selected={selectedRole === opt.value}
-              className={`${styles.filter} ${selectedRole === opt.value ? styles.filterActive : ''}`}
-              onClick={() => setSelectedRole(opt.value)}
-              data-cursor
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
-
         <div className={styles.timeline}>
-          {main.length === 0 && (
-            <div className={styles.empty}>
-              No roles tagged for this lane yet. Try another filter.
-            </div>
-          )}
           {main.map((e) => (
             <article key={e.id} className={styles.entry}>
               <div className={styles.entryRail}>

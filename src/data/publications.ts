@@ -48,6 +48,15 @@ export const publications: PublicationEntry[] = [
     link: { label: 'Springer', url: 'https://link.springer.com/' },
   },
   {
+    id: 'crisis-icwsm',
+    title: 'Traceable Multimodal Summarization of Crisis Events from Social Media Streams',
+    authors: 'Mohammed Afaan Ansari, Cody Buntain',
+    venue: { kind: 'in-prep', venue: 'AAAI ICWSM 2027 (target)', year: 2027 },
+    summary:
+      'Vision-language pipeline for crisis fact extraction, priority ranking, and traceable summarization across image-and-text social-media streams. Benchmarks 9 LVLM families on CrisisFACTS and Incident Streams; couples LVLM extraction with Mistral-7B summarization, embedding-based dedup, and a RoBERTa-large priority classifier (macro-F1 = 0.77). Work in progress with Prof. Cody Buntain at the UMD CLIP Lab.',
+    leadAuthor: true,
+  },
+  {
     id: 'aria',
     title: 'ARIA: Autonomous Risk Intelligence Agent for Vulnerability Prioritization',
     authors: 'Mohammed Afaan Ansari',

@@ -4,7 +4,7 @@ export const projects: ProjectEntry[] = [
   {
     id: 'chartdesign',
     title: 'ChartDesign · LLM Designer of Data Visualization',
-    period: '2024 · Present',
+    period: '2024 to Present',
     summary:
       'Compact LLMs post-trained with LoRA to translate raw tabular data into renderer-agnostic JSON design specifications.',
     bullets: [
@@ -17,9 +17,24 @@ export const projects: ProjectEntry[] = [
     featured: true,
   },
   {
+    id: 'signbridge',
+    title: 'SignBridge · Real-Time Sign Language for Meetings',
+    period: '2026',
+    summary:
+      'Agentic AI system that turns multi-speaker meetings into a fully accessible experience for deaf participants in real time, with a continuous 3D signing avatar.',
+    bullets: [
+      '6-agent system coordinated by Gemini 2.5: browser mic capture, OpenAI Whisper STT, pyannote.audio diarization, Gemini-with-Claude-fallback translation across 10 languages, sign.mt 3D signing avatar, LLM-extracted action items with owners and deadlines.',
+      'Backed by the WLASL dataset (1,959 ASL glosses) and a custom LLM router with auto-fallback. Zero mocks; every component is real ML running through real APIs.',
+      'Won Best of Social Good Track at the Build with AI: Gemini Hackathon @ UMD (Google Cloud × GDG on Campus × Big Think AI).',
+    ],
+    stack: ['Gemini 2.5', 'Claude', 'OpenAI Whisper', 'pyannote.audio', 'sign.mt', 'WLASL'],
+    roles: ['aiml', 'sde'],
+    featured: true,
+  },
+  {
     id: 'multimodal-facts',
     title: 'Multimodal FACTS · Crisis Summarization Pipeline',
-    period: '2025 · Present',
+    period: '2025 to Present',
     summary:
       'End-to-end pipeline for extracting, ranking, and summarizing image-grounded facts during ongoing crises.',
     bullets: [
@@ -63,7 +78,7 @@ export const projects: ProjectEntry[] = [
   {
     id: 'ceed',
     title: 'CEED · Cross Event Evolution Detection',
-    period: '2020 · 2022',
+    period: '2020 to 2022',
     summary:
       'Real-time social event mining on Apache Flume + HDFS with bursty-segment extraction and topic evolution.',
     bullets: [
@@ -86,6 +101,7 @@ export const projects: ProjectEntry[] = [
     ],
     stack: ['Hyperledger Fabric', 'Solidity', 'Node.js', 'Docker'],
     roles: ['sde'],
+    link: { label: 'GitHub', url: 'https://github.com/affan00733/Securring-Blood-Distribution-using-BlockChain' },
   },
   {
     id: 'enterprise-qna',
@@ -99,11 +115,12 @@ export const projects: ProjectEntry[] = [
     ],
     stack: ['GPT-4', 'BM25', 'LangChain', 'Cross-Encoder Reranker'],
     roles: ['aiml', 'dataeng'],
+    link: { label: 'GitHub', url: 'https://github.com/affan00733/rag-pipeline' },
   },
   {
     id: 'crisis-mapping',
     title: 'Sourceable Crisis-Mapping Platform',
-    period: '2022 · 2024',
+    period: '2022 to 2024',
     summary:
       'Real-time global crisis-mapping platform for journalists in humanitarian contexts.',
     bullets: [
@@ -112,5 +129,6 @@ export const projects: ProjectEntry[] = [
     ],
     stack: ['React', 'React Native', 'Node.js', 'Docker', 'Kubernetes', 'Dialogflow'],
     roles: ['sde'],
+    link: { label: 'GitHub', url: 'https://github.com/affan00733/SourceableAppDTMar25' },
   },
 ];

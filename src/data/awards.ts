@@ -51,7 +51,14 @@ export const awards: AwardEntry[] = [
     group: 'industry',
   },
 
-  // Hackathon · Wins
+  // Hackathon Wins
+  {
+    id: 'hack-signbridge-gemini',
+    title: 'Winner · Best of Social Good Track, Build with AI: Gemini Hackathon',
+    detail: 'SignBridge: agentic AI for deaf-accessible meetings (Google Cloud × GDG on Campus UMD × Big Think AI)',
+    year: '2026',
+    group: 'hackathon-win',
+  },
   {
     id: 'hack-spit',
     title: 'Winner · SPIT Hackathon',

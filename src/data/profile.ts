@@ -19,4 +19,6 @@ export const profile: Profile = {
   location: 'College Park, MD',
   linkedin: { label: 'linkedin.com/in/afaan001', url: 'https://www.linkedin.com/in/afaan001' },
   github: { label: 'github.com/affan00733', url: 'https://github.com/affan00733' },
+  resumePath: '/resumes/Resume_Afaan_Ansari_AI_ML.pdf',
+  cvPath: '/resumes/Mohammed_Afaan_Ansari_CV.pdf',
 };

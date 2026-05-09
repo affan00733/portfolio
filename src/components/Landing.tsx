@@ -10,9 +10,8 @@ const FOCUS_WORDS = [
   'Generative AI',
   'Multimodal LLMs',
   'RAG Pipelines',
-  'Data Engineering',
-  'Diffusion',
-  'Software Systems',
+  'Diffusion Models',
+  'Production ML',
 ];
 
 export default function Landing() {

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { FiDownload } from 'react-icons/fi';
-import { resumes } from '../data';
+import { profile } from '../data';
 import styles from './styles/ResumeFab.module.css';
 
 export default function ResumeFab() {
@@ -45,22 +45,28 @@ export default function ResumeFab() {
 
       {open && (
         <div className={styles.menu} role="menu">
-          <div className={styles.menuHint}>Pick the variant for your req:</div>
-          {resumes.map((r) => (
-            <a
-              key={r.id}
-              href={r.file}
-              target="_blank"
-              rel="noreferrer"
-              className={styles.menuItem}
-              role="menuitem"
-              data-cursor
-              onClick={() => setOpen(false)}
-            >
-              <span className={styles.menuLabel}>{r.label}</span>
-              <span className={styles.menuDesc}>{r.description}</span>
-            </a>
-          ))}
+          <a
+            href={profile.resumePath}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.menuItem}
+            role="menuitem"
+            data-cursor
+            onClick={() => setOpen(false)}
+          >
+            Résumé · 1 page
+          </a>
+          <a
+            href={profile.cvPath}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.menuItem}
+            role="menuitem"
+            data-cursor
+            onClick={() => setOpen(false)}
+          >
+            Full CV
+          </a>
         </div>
       )}
     </div>

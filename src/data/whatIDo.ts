@@ -1,5 +1,10 @@
 import type { WhatIDoCard } from './types';
 
+/**
+ * Three cards, all under the AI/ML umbrella. Production-engineering and
+ * full-stack work appears as supporting evidence inside Card 3, not as
+ * a separate identity claim.
+ */
 export const whatIDo: WhatIDoCard[] = [
   {
     id: 'genai',
@@ -8,57 +13,33 @@ export const whatIDo: WhatIDoCard[] = [
     description:
       'Designing, fine-tuning, and shipping LLM systems that survive production budgets and latency targets.',
     examples: [
-      'ChartDesign · LoRA on Phi-3 / Qwen-3 / InternVL2.5 (84% attribute accuracy)',
+      'ChartDesign · LoRA on Phi-3 / Qwen-3 / InternVL2.5 (84% attribute accuracy, COLM 2026)',
       'Multimodal RAG: LVLM extraction → Mistral-7B summarization → embedding dedup',
-      'MSCI prompt engineering · 99.98% serving cost reduction',
+      'MSCI prompt engineering · 99.98% serving cost reduction, <100 ms ONNX inference',
     ],
   },
   {
-    id: 'mlops',
-    role: 'dataeng',
-    title: 'MLOps & Data Engineering',
-    description:
-      'Production data + model pipelines on hybrid cloud, ETL at 10M+ scale, and inference under 100 ms.',
-    examples: [
-      'MSCI hybrid-cloud GCP pipeline · 100K+ research reports, 90%+ accuracy',
-      'FAA-compliant ETL on 10M+ aviation-weather records (CSSI)',
-      'ONNX quantization + GitHub Actions CI/CD across model deployments',
-    ],
-  },
-  {
-    id: 'cv',
+    id: 'multimodal-cv',
     role: 'diffusion',
-    title: 'Computer Vision & Multimodal',
+    title: 'Multimodal & Computer Vision',
     description:
-      'Vision-language modelling, diffusion-based restoration, and CV systems benchmarked for clinical / mobile latency.',
+      'Vision-language modelling, diffusion-based restoration, and CV systems benchmarked for clinical and mobile latency.',
     examples: [
       '9-VLM benchmark (InternVL, Gemma 3, LLaVA, Pixtral, Phi-3.5 V) on crisis fact extraction',
-      'UNet DDPM for low-light restoration · PSNR +3 dB, <150 ms mobile GPU',
-      'CNN MRI brain-tumor detection · 85% accuracy, targeted for Mayo Clinic',
+      'UNet DDPM low-light restoration · PSNR +3 dB at <150 ms mobile GPU',
+      'CNN MRI brain-tumor detection · 85% accuracy, targeted for Mayo Clinic clinical practice',
     ],
   },
   {
-    id: 'datasci',
-    role: 'datasci',
-    title: 'Data Science & Analytics',
+    id: 'production-ml',
+    role: 'dataeng',
+    title: 'Production ML & Systems',
     description:
-      'Modeling on noisy real-world data (financial reports, social media, ESG telemetry) with rigorous evaluation.',
+      'Hybrid-cloud pipelines, ETL at 10M+ scale, agentic systems, and the full-stack engineering needed to ship ML to real users.',
     examples: [
-      'RoBERTa-large priority classifier on 126K labeled posts (macro-F1 0.77)',
-      'ESG / CapEx metrics from 10K+ records (MSCI Sustainability Institute)',
-      'Anomaly detection on 10M+ FAA records (90%+ recall)',
-    ],
-  },
-  {
-    id: 'sde',
-    role: 'sde',
-    title: 'Software Engineering',
-    description:
-      'Full-stack systems built to ship, from agentic AI backends to crisis-mapping platforms used in 50+ countries.',
-    examples: [
-      'ARIA · 10-agent system on Claude Sonnet + FastAPI + React',
-      'Sourceable crisis-mapping (React, K8s, Dialogflow) · 1,500+ journalists / 52+ countries',
-      'EVADB GPT-4 + ONNX vision-encoder integration · 40% latency reduction',
+      'MSCI hybrid-cloud GCP pipeline · 100K+ research reports, 90%+ accuracy',
+      'ARIA · 10-agent CVE prioritization (Claude Sonnet + FastAPI + React)',
+      'Sourceable crisis-mapping platform · 1,500+ journalists in 52+ countries (React, K8s)',
     ],
   },
 ];

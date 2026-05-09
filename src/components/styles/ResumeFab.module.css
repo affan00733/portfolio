@@ -59,7 +59,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-  min-width: 320px;
+  min-width: 200px;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
   animation: menuIn 220ms ease;
 }
@@ -75,38 +75,19 @@
   }
 }
 
-.menuHint {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  letter-spacing: 0.06em;
-  padding: var(--space-2) var(--space-3);
-  border-bottom: 1px dashed var(--border-strong);
-  margin-bottom: var(--space-2);
-}
-
 .menuItem {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: block;
   padding: var(--space-3);
   border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text);
   transition: background 180ms ease;
 }
 
 .menuItem:hover {
   background: var(--bg-elevated);
-}
-
-.menuLabel {
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.menuDesc {
-  font-size: 0.78rem;
-  color: var(--text-muted);
+  color: var(--accent-bright);
 }
 
 @media (max-width: 640px) {

@@ -31,8 +31,8 @@ export default function WhatIDo() {
         <SectionHeader
           index="02"
           eyebrow="What I do"
-          title="Five lanes, one engineer."
-          description="Same engineer, different recruiter brief. Each card is built from concrete shipped work, with no buzzwords unless there's a number behind them."
+          title="Production AI systems, end to end."
+          description="Three areas of focus, all under the AI/ML umbrella. Every example is shipped work with a number behind it, not a buzzword."
         />
 
         <div className={styles.grid}>
@@ -46,7 +46,6 @@ export default function WhatIDo() {
                 data-cursor
               >
                 <header className={styles.cardHead}>
-                  <span className={styles.cardTag}>{meta.short}</span>
                   <span className={styles.cardArrow}>↗</span>
                 </header>
                 <h3 className={styles.cardTitle}>{card.title}</h3>
